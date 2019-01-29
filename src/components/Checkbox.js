@@ -13,9 +13,9 @@ class Checkbox extends Component {
 
     render() {
         return (
-            <div style={{float: 'left'}}>
+            <div className="text-left" style={{float: 'left'}}>
                 <form action="" onSubmit={this.props.onSubmitText.bind(this.props.item, this.props.index)} >
-                <input type="checkbox" onChange={this.onChangeCheckBox.bind(this.props.item, this.props.index)}
+                <input className="checkbox" type="checkbox" onChange={this.onChangeCheckBox.bind(this.props.item, this.props.index)}
                        id={this.props.item.id} checked={this.props.item.checked}/>
 
                 {this.props.item.isEdit ?

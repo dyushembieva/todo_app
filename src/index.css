@@ -1,16 +1,24 @@
 div {
-  background-color: white;
-  padding: 10px;
+  background-color: #f2f2f2;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.wrapper {
+  width: 600px;
+  margin: 200px auto;
 }
 
 h1 {
   text-align: center;
-    font-family: "Times New Roman";
 }
 
 .input {
   border: none;
   border-bottom: 1px solid black;
+  display: block;
+  padding-top: 20px;
+  width: 100%;
+  font-size: 20px;
 }
 
 .input:focus {
@@ -18,8 +26,7 @@ h1 {
 }
 
 .content {
-
-  width: 50%;
+  width: 100%;
 }
 
 .checked {
@@ -28,9 +35,72 @@ h1 {
 
 .unChecked {
   text-decoration: none;
+  background-color: rgba(#223254,.03);
 }
 
 .remove-all {
     background-color: aquamarine;
     float: right;
+    padding: 10px;
+}
+
+.btn-delete {
+  width: 35px;
+  height: 35px;
+  background-image: url("./images/trash-solid.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-color: #1adbe0;
+  border-radius: 50%;
+  border: none;
+}
+
+.btn-delete:hover {
+  cursor: pointer;
+}
+
+.btn-edit {
+  width: 35px;
+  height: 35px;
+  background-image: url('./images/edit-regular.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background-color: #1adbe0;
+  border-radius: 50%;
+  border: none;
+  margin-left: 10px;
+}
+
+.btn-edit:hover {
+  cursor: pointer;
+}
+
+.text-left {
+  width: 75%;
+}
+
+.button-item {
+  display: flex;
+}
+
+.btn {
+  padding: 0.7em 2.2em;
+  border: 3px solid #1adbe0;
+  transition: all 300ms ease;
+  box-shadow: 0px 4px 10px 2px rgba(black, 0.2);
+  color: black;
+  background-color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.btn-left {
+  margin-left: auto;
 }

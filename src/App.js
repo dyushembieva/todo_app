@@ -111,14 +111,14 @@ class TodoList extends  React.Component {
                                           newText={this.state.newText}
                                           onSubmitText={this.onSubmitText}
                                 />
-                                  <div  style={{float: 'right'}}>
+                                  <div className="text-right">
                                       <RemoveButton item={item}
                                                     todoList={this.state.todoList}
                                                     index={index}
                                                     onRemoveTodoList={this.onRemoveTodoList}
 
                                       />
-                                      <input type="button" onClick={this.onEdit.bind(item, index)} value='Edit'/>
+                                      <input className="btn-edit" type="button" onClick={this.onEdit.bind(item, index)}/>
                                   </div>
 
                               </div>

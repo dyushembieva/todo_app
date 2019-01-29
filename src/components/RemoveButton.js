@@ -10,7 +10,7 @@ class RemoveButton extends Component {
 
     render() {
         return(
-            <input type="button" value="Delete" onClick={this.onRemove.bind(this.props.item, this.props.index)}/>
+            <input className="btn-delete" type="button" onClick={this.onRemove.bind(this.props.item, this.props.index)}/>
         )
     }
 }
