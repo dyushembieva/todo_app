@@ -24,7 +24,7 @@ class Checkbox extends Component {
                     <input type="text"  value={this.props.editValue} onChange={this.props.onChangeEdit.bind(this.props.item, this.props.index)}/>
 
                     :<label htmlFor={this.props.item.id}
-                           className={this.props.item.checked ? 'checked' : 'unChecked'}>{this.props.item.title} </label>
+                           className={this.props.item.checked ? 'checked' : 'unChecked'}>{this.props.item.text} </label>
                 }
                 </form>
 

@@ -4,7 +4,10 @@ import RemoveButton from './components/RemoveButton'
 import Title from './components/Title'
 import MainTitle from './components/MainTitle'
 import Checkbox from './components/Checkbox'
-
+import { connect,  } from 'react-redux'
+import { addTodo } from './actions/'
+// import { todos } from './reducers/todos'
+import {bindActionCreators} from 'redux'
 
 class TodoList extends  React.Component {
     constructor(props) {
@@ -21,18 +24,20 @@ class TodoList extends  React.Component {
     }
 
     addItem = () => {
-        let newItems = this.state.todoList;
+        // let newItems = this.state.todoList;
 
-        newItems.unshift({
-            id: this.state.todoList.length + 1,
-            title: this.state.textValue,
-            checked: false,
-            edit: false
-        });
+        // newItems.unshift({
+        //     id: this.state.todoList.length + 1,
+        //     title: this.state.textValue,
+        //     checked: false,
+        //     edit: false
+        // });
 
-        this.setState({
-            todoList: newItems
-        })
+        // this.setState({
+        //     todoList: newItems
+        // })
+
+        this.props.addTodo(this.state.todoList.length +1,  this.state.textValue, false, false)
     };
 
     onChangeInput = (textValue) => {
@@ -105,6 +110,7 @@ class TodoList extends  React.Component {
     };
 
     render() {
+        console.log('asdasdasd', this.props.todos)
       return (
           <div className='container'>
               <MainTitle title={'Todo-list'}
@@ -116,7 +122,8 @@ class TodoList extends  React.Component {
               />
               <div className="content">
                   {
-                      this.state.todoList.map((item, index) => {
+                      this.props.todos.map((item, index) => {
+                          console.log('asdjkakl', item)
                           return (
                               <div className='list'>
                                 <Checkbox todoList={this.state.todoList}
@@ -158,4 +165,29 @@ class TodoList extends  React.Component {
   }
 }
 
-export default TodoList;
+
+function mapStateToProps (state) {
+    console.log('dsfdsfdsfdsf', state)
+    return {
+        todos: state.todos
+    }
+}
+
+// mapStateToProps
+
+//MapDispatch ToProps
+
+//BIndActionCreator
+
+//
+
+const mapDispatchToProps = (dispatch) => {
+    return { addTodo: bindActionCreators(addTodo, dispatch) }
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(TodoList)
+
+
