@@ -47,6 +47,7 @@ class TodoList extends  React.Component {
       })
     };
 
+
     changeValue = (value) => {
       this.setState({
           textValue: value
@@ -87,9 +88,25 @@ class TodoList extends  React.Component {
         })
     };
 
+    onRemoveAllTask = () => {
+        this.setState({
+            todoList: []
+        })
+    };
+
+    onRemoveCompletedTask = () => {
+        let allCompletedTask = this.state.todoList.filter((task) => {
+            return task.checked !== true
+        });
+
+        this.setState({
+            todoList: allCompletedTask
+        })
+    };
+
     render() {
       return (
-          <div>
+          <div className='container'>
               <MainTitle title={'Todo-list'}
               />
               <Title addItem={this.addItem}
@@ -101,7 +118,7 @@ class TodoList extends  React.Component {
                   {
                       this.state.todoList.map((item, index) => {
                           return (
-                              <div>
+                              <div className='list'>
                                 <Checkbox todoList={this.state.todoList}
                                           onChangeCheckBox={this.onChangeCheckBox}
                                           item={item}
@@ -120,11 +137,21 @@ class TodoList extends  React.Component {
                                       />
                                       <input className="btn-edit" type="button" onClick={this.onEdit.bind(item, index)}/>
                                   </div>
+                                  <div className="clear"></div>
 
                               </div>
                           )
                       })
                   }
+                  <div className="push"></div>
+              </div>
+
+              <div className="footer">
+                  <div className="button-item">
+                      <button className="btn" onClick={this.onRemoveCompletedTask}>REMOVE COMPLETED ALL</button>
+                      <button className="btn btn-left" onClick={this.onRemoveAllTask}>REMOVE ALL</button>
+                      <div className="clear"></div>
+                  </div>
               </div>
           </div>
       );

@@ -1,11 +1,26 @@
 div {
-  background-color: #f2f2f2;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.wrapper {
-  width: 600px;
-  margin: 200px auto;
+body, html, #root, .container {
+    height: 100%;
+    margin: 0;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+
+
+}
+
+#root {
+
+}
+
+.push, .footer {
+    height: 50px;
 }
 
 h1 {
@@ -27,6 +42,11 @@ h1 {
 
 .content {
   width: 100%;
+/*min-height: 100%;*/
+margin-bottom: -50px;
+    overflow: auto;
+
+
 }
 
 .checked {
@@ -35,7 +55,6 @@ h1 {
 
 .unChecked {
   text-decoration: none;
-  background-color: rgba(#223254,.03);
 }
 
 .remove-all {
@@ -47,11 +66,8 @@ h1 {
 .btn-delete {
   width: 35px;
   height: 35px;
-  background-image: url("./images/trash-solid.svg");
-  background-position: center;
-  background-repeat: no-repeat;
+  background: #1adbe0 url("./images/trash-solid.svg") no-repeat center;
   background-size: 50%;
-  background-color: #1adbe0;
   border-radius: 50%;
   border: none;
 }
@@ -63,11 +79,8 @@ h1 {
 .btn-edit {
   width: 35px;
   height: 35px;
-  background-image: url('./images/edit-regular.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 60%;
-  background-color: #1adbe0;
+  background: #1adbe0 url('./images/edit-regular.svg') no-repeat center;
+  background-size: 50%;
   border-radius: 50%;
   border: none;
   margin-left: 10px;
@@ -81,8 +94,20 @@ h1 {
   width: 75%;
 }
 
+.footer {
+
+}
+
+.text-right {
+    float: right;
+}
+
 .button-item {
-  display: flex;
+    padding-top: 20px;
+}
+
+.list {
+    margin: 10px;
 }
 
 .btn {
@@ -102,5 +127,9 @@ h1 {
 }
 
 .btn-left {
-  margin-left: auto;
+    float: right;
+}
+
+.clear {
+    clear: both;
 }
