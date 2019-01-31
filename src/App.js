@@ -5,9 +5,10 @@ import Title from './components/Title'
 import MainTitle from './components/MainTitle'
 import Checkbox from './components/Checkbox'
 import { connect,  } from 'react-redux'
-import { addTodo } from './actions/'
+import { addTodo, deleteTodo } from './actions/'
 // import { todos } from './reducers/todos'
 import {bindActionCreators} from 'redux'
+
 
 class TodoList extends  React.Component {
     constructor(props) {
@@ -15,28 +16,15 @@ class TodoList extends  React.Component {
         this.state = {
             textValue: '',
             newText: '',
-            todoList: [
-            ],
+            todoList: props.todos,
             styleCheckbox: {textDecoration: 'none'},
             isEdit: false,
             newArray: []
         }
     }
 
+
     addItem = () => {
-        // let newItems = this.state.todoList;
-
-        // newItems.unshift({
-        //     id: this.state.todoList.length + 1,
-        //     title: this.state.textValue,
-        //     checked: false,
-        //     edit: false
-        // });
-
-        // this.setState({
-        //     todoList: newItems
-        // })
-
         this.props.addTodo(this.state.todoList.length +1,  this.state.textValue, false, false)
     };
 
@@ -45,13 +33,6 @@ class TodoList extends  React.Component {
             textValue: textValue.target.value
         })
     };
-
-    onRemoveTodoList = (todoText) => {
-      this.setState({
-          todoList: todoText
-      })
-    };
-
 
     changeValue = (value) => {
       this.setState({
@@ -110,7 +91,6 @@ class TodoList extends  React.Component {
     };
 
     render() {
-        console.log('asdasdasd', this.props.todos)
       return (
           <div className='container'>
               <MainTitle title={'Todo-list'}
@@ -123,10 +103,10 @@ class TodoList extends  React.Component {
               <div className="content">
                   {
                       this.props.todos.map((item, index) => {
-                          console.log('asdjkakl', item)
+
                           return (
                               <div className='list'>
-                                <Checkbox todoList={this.state.todoList}
+                                <Checkbox todoList={this.props.todos}
                                           onChangeCheckBox={this.onChangeCheckBox}
                                           item={item}
                                           index={index}
@@ -137,9 +117,9 @@ class TodoList extends  React.Component {
                                 />
                                   <div className="text-right">
                                       <RemoveButton item={item}
-                                                    todoList={this.state.todoList}
+                                                    todoList={this.props.todos}
                                                     index={index}
-                                                    onRemoveTodoList={this.onRemoveTodoList}
+                                                    onRemoveTodo={this.props.deleteTodo}
 
                                       />
                                       <input className="btn-edit" type="button" onClick={this.onEdit.bind(item, index)}/>
@@ -167,22 +147,22 @@ class TodoList extends  React.Component {
 
 
 function mapStateToProps (state) {
-    console.log('dsfdsfdsfdsf', state)
     return {
         todos: state.todos
     }
 }
 
 // mapStateToProps
-
 //MapDispatch ToProps
+//BIndActionCreators
 
-//BIndActionCreator
-
-//
 
 const mapDispatchToProps = (dispatch) => {
-    return { addTodo: bindActionCreators(addTodo, dispatch) }
+    return {
+        addTodo: bindActionCreators(addTodo, dispatch),
+        deleteTodo: bindActionCreators(deleteTodo, dispatch)
+    }
+
 };
 
 export default connect(

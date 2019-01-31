@@ -2,10 +2,15 @@ import React, {Component} from 'react'
 
 
 class RemoveButton extends Component {
+
+
+
+
+
     onRemove = (e) => {
-        let newArrayOfTodoList = this.props.todoList;
-        newArrayOfTodoList.splice(e, 1);
-        this.props.onRemoveTodoList(newArrayOfTodoList)
+        this.props.onRemoveTodo(e, this.props.todoList)
+
+
     };
 
     render() {

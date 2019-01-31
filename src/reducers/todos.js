@@ -12,11 +12,12 @@ const todos = (state = [], action) => {
                     completed: action.payload.completed,
                     edit: action.payload.edit
                 }
-            ]
-        // case 'TOGGLE_TODO':
-        //     return state.map(todo =>
-        //         todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
-        //     )
+            ];
+
+        case 'REMOVE_TODO' :
+            return  [...action.payload]
+
+
          default:
             return state
     }
