@@ -17,6 +17,8 @@ const todos = (state = [], action) => {
         case 'REMOVE_TODO' :
             return  [...action.payload]
 
+        case 'REMOVE_ALL':
+            return [];
 
          default:
             return state

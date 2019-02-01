@@ -3,14 +3,8 @@ import React, {Component} from 'react'
 
 class RemoveButton extends Component {
 
-
-
-
-
     onRemove = (e) => {
         this.props.onRemoveTodo(e, this.props.todoList)
-
-
     };
 
     render() {

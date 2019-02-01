@@ -21,9 +21,12 @@ export const deleteTodo = (index, todoList) => {
     }
 };
 
-
-export const editTodo = (index) => {};
-
-export const removeAllTodo = () => {};
+export const removeAllTodo = () => {
+    return {
+        type: 'REMOVE_ALL'
+    }
+};
 
 export const removeByCompleted = () => {};
+
+export const editTodo = (index) => {};

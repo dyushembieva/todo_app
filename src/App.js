@@ -5,8 +5,7 @@ import Title from './components/Title'
 import MainTitle from './components/MainTitle'
 import Checkbox from './components/Checkbox'
 import { connect,  } from 'react-redux'
-import { addTodo, deleteTodo } from './actions/'
-// import { todos } from './reducers/todos'
+import {addTodo, deleteTodo, removeAllTodo } from './actions/'
 import {bindActionCreators} from 'redux'
 
 
@@ -22,7 +21,6 @@ class TodoList extends  React.Component {
             newArray: []
         }
     }
-
 
     addItem = () => {
         this.props.addTodo(this.state.todoList.length +1,  this.state.textValue, false, false)
@@ -75,9 +73,7 @@ class TodoList extends  React.Component {
     };
 
     onRemoveAllTask = () => {
-        this.setState({
-            todoList: []
-        })
+       this.props.removeAllTodo();
     };
 
     onRemoveCompletedTask = () => {
@@ -160,7 +156,8 @@ function mapStateToProps (state) {
 const mapDispatchToProps = (dispatch) => {
     return {
         addTodo: bindActionCreators(addTodo, dispatch),
-        deleteTodo: bindActionCreators(deleteTodo, dispatch)
+        deleteTodo: bindActionCreators(deleteTodo, dispatch),
+        removeAllTodo: bindActionCreators(removeAllTodo, dispatch)
     }
 
 };
